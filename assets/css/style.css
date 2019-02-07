@@ -1,0 +1,79 @@
+.list-none{
+	list-style: none;
+}
+
+.bg-color
+{
+	background-color: #a5b1bd !important;
+}
+
+.sidebar-css
+{
+	background-color: #3c444c;
+    width: 230px;
+    height: 600px;
+    margin-left: -102px;
+}
+
+
+.sidebar-css ul
+{
+	padding-left: 70px;
+}
+
+.sidebar-css ul li
+{
+	/*padding-top: 30px;*/
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+.sidebar-css ul li a
+{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-size: medium;
+	padding-top: 10px;
+}
+
+.sidebar-css label
+{
+	color: aliceblue;
+	padding-left: 44px;
+	padding-top: 20px;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.brand
+{
+	font-weight: bold;
+	color: white;
+	font-size: xx-large;
+}
+
+#custom-container
+{
+	    margin-top: -601px;
+    margin-right: -45px;
+}
+
+.room1
+{
+	background-color: darkgrey;
+	height: 300px;
+	opacity: 0.6;
+}
+
+.room1 h6
+{
+	font-weight: bold;
+}
+.room1 label
+{
+	margin: 5%;
+	font-weight: bold;
+	color: #020202;
+	margin-left: 60px;
+}

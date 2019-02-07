@@ -9,9 +9,18 @@
   };
   firebase.initializeApp(config);
 
+
+
+
+
+// code for led
 	$(document).ready(function(){
 		var database = firebase.database();
 		var ledStatus;
+		var fanStatus;
+		var tvStatus;
+		var acStatus;
+
 
 		database.ref().on("value", function(snap)
 		{
@@ -40,5 +49,94 @@
 			}
 		});
 
+// code for fan 
+		database.ref().on("value", function(snap)
+		{
+			fanStatus = snap.val().fanStatus;
+			if(fanStatus == 1)
+			{
+				$(".fanStatus").text("The Fan is off");
+			}
+			else
+			{
+				$(".fanStatus").text("The Fan is on");
+			}
+		});
+		
+		$(".fanButton").click(function(){
+			var firebaseRef = firebase.database().ref().child("fanStatus");
+			if(fanStatus == 1)
+			{
+				firebaseRef.set(0);
+				fanStatus = 0;
+			}
+			else
+			{
+				firebaseRef.set(1);
+				fanStatus = 1;
+			}
+		});
+
+		// code for Tv
+		database.ref().on("value", function(snap)
+		{
+			tvStatus = snap.val().tvStatus;
+			if(tvStatus == 1)
+			{
+				$(".tvStatus").text("The TV is off");
+			}
+			else
+			{
+				$(".tvStatus").text("The TV is on");
+			}
+		});
+		
+		$(".tvButton").click(function(){
+			var firebaseRef = firebase.database().ref().child("tvStatus");
+			if(tvStatus == 1)
+			{
+				firebaseRef.set(0);
+				tvStatus = 0;
+			}
+			else
+			{
+				firebaseRef.set(1);
+				tvStatus = 1;
+			}
+		});
+
+		// code for AC
+
+		database.ref().on("value", function(snap)
+		{
+			acStatus = snap.val().acStatus;
+			if(acStatus == 1)
+			{
+				$(".acStatus").text("AC is ON");
+			}
+			else
+			{
+				$(".acStatus").text("AC is OFF");
+			}
+		});
+
+		$(".acButton").click(function(){
+			var firebaseRef = Firebase.database().ref().child("acStatus");
+			if(acStatus == 1)
+			{
+				firebaseRef.set(0);
+				acStatus = 0;
+			}
+			else
+			{
+				firebaseRef.set(1);
+				acStatus = 1;
+			}
+		});
+
 	});
+
+
+
+// for toggle button
 
