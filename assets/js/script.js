@@ -16,10 +16,10 @@
 // code for led
 	$(document).ready(function(){
 		var database = firebase.database();
-		var ledStatus;
-		var fanStatus;
-		var tvStatus;
-		var acStatus;
+		var ledStatus = 0;
+		var fanStatus = 0;
+		var tvStatus = 0;
+		var acStatus = 0;
 
 
 		database.ref().on("value", function(snap)
@@ -55,11 +55,11 @@
 			fanStatus = snap.val().fanStatus;
 			if(fanStatus == 1)
 			{
-				$(".fanStatus").text("The Fan is off");
+				$(".fanStatus").text("The Fan is on");
 			}
 			else
 			{
-				$(".fanStatus").text("The Fan is on");
+				$(".fanStatus").text("The Fan is off");
 			}
 		});
 		
@@ -83,11 +83,11 @@
 			tvStatus = snap.val().tvStatus;
 			if(tvStatus == 1)
 			{
-				$(".tvStatus").text("The TV is off");
+				$(".tvStatus").text("The TV is on");
 			}
 			else
 			{
-				$(".tvStatus").text("The TV is on");
+				$(".tvStatus").text("The TV is off");
 			}
 		});
 		
@@ -121,7 +121,7 @@
 		});
 
 		$(".acButton").click(function(){
-			var firebaseRef = Firebase.database().ref().child("acStatus");
+			var firebaseRef = firebase.database().ref().child("acStatus");
 			if(acStatus == 1)
 			{
 				firebaseRef.set(0);

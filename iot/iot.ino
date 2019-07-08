@@ -2,14 +2,21 @@
 #include <ArduinoJson.h>
 #include<ESP8266WiFi.h>
 #define WIFI_SSID  "aplus_engineering"
-#define WIFI_PASSWORD "Aplus@1234"
+#define WIFI_PASSWORD "mark@12345"
 #define FIREBASE_HOST "dhniot.firebaseio.com"
-#define FIREBASE_AUTH "Wzye5RLmuf8rTXzoX1GOMcmjQVQZg7KQQvUBYp5B"
+#define FIREBASE_AUTH "WESdLN84wBtL8S20BVt36rWTBov2W2EEMsvyeNj5"
 
-int ledPower = 2;
+
+
+int ledPower = D3;
 int fanPower = D0;
 int tvPower = D1;
 int acPower = D2;
+
+///code for pir sensor
+int pirLed = D4;
+int pirInput = D5;
+int pir;
 
 void setup() {
   // put your setup code here, to run once:
@@ -34,7 +41,10 @@ void setup() {
   pinMode(fanPower, OUTPUT);
   pinMode(acPower, OUTPUT);
   pinMode(tvPower, OUTPUT);
-  
+
+//  /code for pir sensor
+pinMode(pirInput,INPUT);
+pinMode(pirLed, OUTPUT);
   
 }
 
@@ -44,7 +54,8 @@ void loop() {
   int fanStatus = Firebase.getInt("fanStatus");
   Serial.print("Fan Status :");
   Serial.println(fanStatus);
-  if(fanStatus == 0)
+  delay(2000);
+  if(fanStatus == 1)
   {
     digitalWrite(fanPower, HIGH);
   }
@@ -57,8 +68,9 @@ void loop() {
   int ledStatus = Firebase.getInt("ledStatus");
   Serial.print("LED Status :");
   Serial.println(ledStatus);
+  delay(2000);
 
-  if(ledStatus == 0)
+  if(ledStatus == 1)
   {
     digitalWrite(ledPower, HIGH);
     
@@ -73,7 +85,8 @@ void loop() {
   int tvStatus = Firebase.getInt("tvStatus");
   Serial.print("TV Status : ");
   Serial.println(tvStatus);
-  if(tvStatus == 0)
+  delay(2000);
+  if(tvStatus == 1)
   {
     digitalWrite(tvPower, HIGH);
   }
@@ -87,7 +100,9 @@ void loop() {
   int acStatus = Firebase.getInt("acStatus");
   Serial.print("AC Status : ");
   Serial.println(acStatus);
-  if(acStatus == 0)
+  Serial.println("\n\n");
+  delay(2000);
+  if(acStatus == 1)
   {
     digitalWrite(acPower, HIGH);
   }
@@ -97,5 +112,16 @@ void loop() {
   }
 
 
+
+/// code for pir
+pir = digitalRead(pirInput);
+if(pir == 1)
+{
+  digitalWrite(pirLed, HIGH);
+}
+else
+{
+  digitalWrite(pirLed, LOW);
+}
   
 }

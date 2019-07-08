@@ -21,9 +21,9 @@
 
 </nav>
 </head>
-<body style="background-image: url('assets/images/background-2.jpg');">
+<body >
 
-	<div class="container" >
+	<!-- <div class="container" >
 		<div class="row">
 			<div class="col-md-1.5">
 				<?php  include("pages/sidebar.php");?>
@@ -40,7 +40,8 @@
 
 			</div>
 
-			<!-- for room2 -->
+
+			<!-- for room2 --><!-- 
 			<div class="col-md-6 room1">
 				<label class="btn btn-primary">Room No. 2 Control Panel</label>
 				
@@ -54,12 +55,12 @@
 					<button class="btn btn-primary">Light 2</button>
 
 				</div>
-			</div>
+			</div> -->
 			<!-- for kitchen -->
-			
+			<!-- 
 		</div>
 
-	</div>
+	</div> -->
 	
 
 
@@ -72,7 +73,7 @@
 
 
 
-	<!-- <div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12" style="margin-top: 50px">
 				<h3 class="lightStatus"></h3>
@@ -97,6 +98,6 @@
 				<button class="btn btn-danger acButton">Click</button>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </body>
 </html>
